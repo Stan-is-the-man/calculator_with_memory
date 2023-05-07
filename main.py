@@ -25,7 +25,7 @@ def factorial(any_integer):
     return the_result
 
 
-def calculate_execution_time_in_miliseconds(func, *args):
+def calculate_execution_time_in_milliseconds(func, *args):
     start_time = time.perf_counter()
     func(*args)
     end_time = time.perf_counter()
@@ -38,7 +38,7 @@ def data_to_db(the_action, the_result, the_total_time):
         host='localhost',
         database='calculator_memory',
         user='postgres',
-        password='1123QwER'
+        password='**********'
     )
     cursor_object = connection.cursor()
     cursor_object.execute(
@@ -68,7 +68,7 @@ while True:
             number_1 = float(input("Please enter the first number:\n"))
             number_2 = float(input("Please enter the second number:\n"))
             res = basic_operators(number_1, number_2, operator)
-            exec_time = calculate_execution_time_in_miliseconds(basic_operators, number_1, number_2, operator)
+            exec_time = calculate_execution_time_in_milliseconds(basic_operators, number_1, number_2, operator)
             data_to_db(operator, res, exec_time)
             print(res)
         except ValueError:
@@ -80,7 +80,7 @@ while True:
             number_2 = float(input("Please enter the second number, other than ZERO:\n"))
             if number_2 != 0:
                 res = basic_operators(number_1, number_2, operator)
-                exec_time = calculate_execution_time_in_miliseconds(basic_operators, number_1, number_2, operator)
+                exec_time = calculate_execution_time_in_milliseconds(basic_operators, number_1, number_2, operator)
                 data_to_db(operator, res, exec_time)
                 print(res)
             else:
@@ -94,7 +94,7 @@ while True:
             power = int(input("Please enter the power - integer number:\n"))
             if isinstance(power, int):
                 res = basic_operators(number, power, operator)
-                exec_time = calculate_execution_time_in_miliseconds(basic_operators, number, power, operator)
+                exec_time = calculate_execution_time_in_milliseconds(basic_operators, number, power, operator)
                 data_to_db(operator, res, exec_time)
                 print(res)
             else:
@@ -106,7 +106,7 @@ while True:
         try:
             the_number = int(input("Please enter just ONE INTEGER number:\n"))
             res = factorial(the_number)
-            exec_time = calculate_execution_time_in_miliseconds(factorial, the_number)
+            exec_time = calculate_execution_time_in_milliseconds(factorial, the_number)
             data_to_db(operator, res, exec_time)
             print(res)
         except ValueError:
