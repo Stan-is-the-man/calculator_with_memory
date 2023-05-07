@@ -60,9 +60,10 @@ def data_to_db(the_action, the_result, the_total_time):
 while True:
     operator = input("\nPlease enter one of the following actions to perform:\n"
                      "( +, -, *, /, ^, %, ! ) or type 'exit' to quit. \n")
+
     if operator == 'exit':
         break
-    elif operator in ['+', '-', '*', '%']:
+    if operator in ['+', '-', '*', '%']:
         try:
             number_1 = float(input("Please enter the first number:\n"))
             number_2 = float(input("Please enter the second number:\n"))
