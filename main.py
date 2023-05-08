@@ -38,7 +38,7 @@ def data_to_db(the_action, the_result, the_total_time):
         host='localhost',
         database='calculator_memory',
         user='postgres',
-        password='**********'
+        password='1123QwER'
     )
     cursor_object = connection.cursor()
     cursor_object.execute(
